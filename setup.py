@@ -11,7 +11,7 @@ with open(requirements_path, encoding="utf-8") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="zettel-update",
+    name="zettel_update",
     version="0.1.0",
     author="Felipe Marcelino",
     author_email="felipe.marcelino1991@gmail.com",
