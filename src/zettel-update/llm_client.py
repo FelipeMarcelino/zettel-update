@@ -21,9 +21,14 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
         Análise e execute as seguintes instruções:
         1.  Extraia o título da "NOTA". O título é a primeira linha, que começa com '# '.
         2.  Compare este título com os títulos já existentes no "POST DIÁRIO".
-        3.  **SE** encontrar um título correspondente, substitua a seção inteira da nota antiga pelo conteúdo completo da "NOTA".
-        4.  **SE NÃO** encontrar um título correspondente, anexe o conteúdo completo da "NOTA" ao final do "POST DIÁRIO", precedido por um separador de três hífens em sua própria linha.
+        3.  **SE** encontrar um título correspondente ou um texto com conteúdo similar em alguma parte da nota, substitua a seção inteira da nota antiga pelo conteúdo completo da "NOTA".
+        4.  **SE NÃO** encontrar um título correspondente ou, anexe o conteúdo completo da "NOTA" ao final do "POST DIÁRIO", precedido por um separador de três hífens em sua própria linha.
         5.  Sua resposta deve ser **EXCLUSIVAMENTE** o texto final do post diário.
+        6.  Preserve a formatação markdown do arquivo. 
+        7.  Preserve as hashtags abaixo do título da nota que está sendi inserida no "POST DIÁRIO"
+        8.  Verifique se a na "POST DIÁRIO" o primeiro título é a data do dia da nota, como por exemplo '# September 27,
+        2025' mas utilizando a data de hoje. Se não, adicione este título maior e os outros títulos das notas inseridas e que vai ser inserida serão subtítulos com hashtag dupla.
+        9.  Faça um doublecheck para verificar se a "POST DIÁRIO" post está organizada após inserir a nota nova.
 
         **REGRA DE SAÍDA CRÍTICA:** A sua saída não deve conter nenhuma explicação, comentário, introdução, ou blocos de código como ```markdown ou ```. A resposta deve ser o texto Markdown puro e completo, pronto para ser salvo diretamente em um arquivo .md.
     """
