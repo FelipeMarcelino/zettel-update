@@ -2,7 +2,7 @@ import logging
 import os
 from datetime import date
 
-from . import config
+import config
 
 logger = logging.getLogger(__name__)
 

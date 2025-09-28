@@ -1,9 +1,8 @@
 import logging
 from datetime import datetime
 
+import config
 import git  # GitPython
-
-from . import config
 
 logger = logging.getLogger(__name__)
 

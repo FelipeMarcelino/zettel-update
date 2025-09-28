@@ -1,11 +1,10 @@
 import logging
 import time
 
+import config
+from file_handler import MarkdownChangeHandler
+from logger_setup import setup_logging
 from watchdog.observers import Observer
-
-from . import config
-from .file_handler import MarkdownChangeHandler
-from .logger_setup import setup_logging
 
 
 def main():

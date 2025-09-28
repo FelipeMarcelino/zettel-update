@@ -1,11 +1,13 @@
 import logging
 import time
 
+import daily_post_manager
+import git_manager
+import llm_client
 from watchdog.events import FileSystemEventHandler
 
-from . import daily_post_manager, git_manager, llm_client
-
-logger = logging.getLogger(__name__)
+l
+ogger = logging.getLogger(__name__)
 
 class MarkdownChangeHandler(FileSystemEventHandler):
     """Manipulador que reage a criação/modificação de arquivos Markdown."""
