@@ -6,8 +6,7 @@ import git_manager
 import llm_client
 from watchdog.events import FileSystemEventHandler
 
-l
-ogger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 class MarkdownChangeHandler(FileSystemEventHandler):
     """Manipulador que reage a criação/modificação de arquivos Markdown."""

@@ -1,9 +1,8 @@
 # src/daily_post_aggregator/llm_client.py
 import logging
 
-import openai
 import config
-
+import openai
 
 logger = logging.getLogger(__name__)
 
@@ -17,14 +16,16 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
         return daily_post_content
 
     system_prompt = """
-    Você é um assistente inteligente para um sistema Zettelkasten. Sua tarefa é integrar uma nova nota (ou uma versão atualizada de uma nota) a um post diário de forma organizada.
+        Você é um assistente de automação de conteúdo para um sistema Zettelkasten. Sua função é integrar uma nota em um post diário de forma programática e precisa.
 
-    INSTRUÇÕES:
-    1.  Identifique o título da "NOTA NOVA/ATUALIZADA". O título é a primeira linha, geralmente começando com '# '.
-    2.  Verifique se uma nota com este mesmo título JÁ EXISTE no "POST DIÁRIO ATUAL".
-    3.  Se a nota JÁ EXISTE, você deve substituir a seção antiga inteira no post diário pelo conteúdo completo da "NOTA NOVA/ATUALIZADA".
-    4.  Se a nota NÃO EXISTE, adicione uma linha de separação (`\n\n---\n\n`) ao final do post diário e, em seguida, anexe o conteúdo completo da "NOTA NOVA/ATUALIZADA".
-    5.  Retorne APENAS o conteúdo final e completo do post diário. Não inclua nenhuma explicação, introdução, comentário sua resposta. Apenas o texto junto com os markdown.
+        Análise e execute as seguintes instruções:
+        1.  Extraia o título da "NOTA". O título é a primeira linha, que começa com '# '.
+        2.  Compare este título com os títulos já existentes no "POST DIÁRIO".
+        3.  **SE** encontrar um título correspondente, substitua a seção inteira da nota antiga pelo conteúdo completo da "NOTA".
+        4.  **SE NÃO** encontrar um título correspondente, anexe o conteúdo completo da "NOTA" ao final do "POST DIÁRIO", precedido por um separador de três hífens em sua própria linha.
+        5.  Sua resposta deve ser **EXCLUSIVAMENTE** o texto final do post diário.
+
+        **REGRA DE SAÍDA CRÍTICA:** A sua saída não deve conter nenhuma explicação, comentário, introdução, ou blocos de código como ```markdown ou ```. A resposta deve ser o texto Markdown puro e completo, pronto para ser salvo diretamente em um arquivo .md.
     """
 
     user_prompt = f"""
