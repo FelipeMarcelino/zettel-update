@@ -25,6 +25,9 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
         4.  **SE** encontrar um título correspondente ou um texto com conteúdo similar em alguma parte da nota, substitua a seção inteira da nota antiga pelo conteúdo completo da "NOTA".
         5.  **SE NÃO** encontrar um título correspondente ou, anexe o conteúdo completo da "NOTA" ao final do "POST DIÁRIO", precedido por um separador de três hífens .
         6.  Sua resposta deve ser **EXCLUSIVAMENTE** o texto final do post diário.
+        7.  Caso não existe no "POST DIÁRIO" o títutlo geral com a data de hoje, por favor inserir no título a data de
+        execução do prompt.
+        8.  Não precisa incluir --- no topo do markdown, somente entre as seções.
 
         **REGRA DE SAÍDA CRÍTICA:** A sua saída não deve conter nenhuma explicação, comentário, introdução, ou blocos de código como ```markdown ou ```. A resposta deve ser o texto Markdown puro e completo, pronto para ser salvo diretamente em um arquivo .md.
     """
