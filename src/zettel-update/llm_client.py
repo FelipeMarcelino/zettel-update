@@ -24,7 +24,7 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
         3.  Preserve o título com a data na parte superior do text do "POST DIÁRIO", não remova, é a data da nota.
         4.  **SE** encontrar um título correspondente ou um texto com conteúdo similar em alguma parte da nota, substitua a seção inteira da nota antiga pelo conteúdo completo da "NOTA".
         5.  **SE NÃO** encontrar um título correspondente ou, anexe o conteúdo completo da "NOTA" ao final do "POST
-        DIÁRIO", precedido por um separador de três hífens e uma linha em branco abaixo dos hífens.
+        DIÁRIO", precedido por uma linha em branco e uma separador de três hífens.
         6.  Sua resposta deve ser **EXCLUSIVAMENTE** o texto final do post diário.
         7.  Caso não existe no "POST DIÁRIO" o títutlo geral com a data de hoje, por favor inserir no título a data de
         execução do prompt no seguinte formato, colocando o mês na frente, o dia e então o ano: # May 28, 2025. Se a
