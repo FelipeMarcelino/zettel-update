@@ -26,9 +26,8 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
         5.  Sua resposta deve ser **EXCLUSIVAMENTE** o texto final do post diário.
         6.  Preserve a formatação markdown do arquivo. 
         7.  Preserve as hashtags abaixo do título da nota que está sendi inserida no "POST DIÁRIO"
-        8.  Verifique se a na "POST DIÁRIO" o primeiro título é a data do dia da nota, como por exemplo '# September 27,
-        2025' mas utilizando a data de hoje. Se não, adicione este título maior e os outros títulos das notas inseridas e que vai ser inserida serão subtítulos com hashtag dupla.
-        9.  Faça um doublecheck para verificar se a "POST DIÁRIO" post está organizada após inserir a nota nova.
+        8.  Preserve a data do dia da nota como título principal no topo da nota 
+        9.  Os outros títulos de cada nota são subtítulos.
 
         **REGRA DE SAÍDA CRÍTICA:** A sua saída não deve conter nenhuma explicação, comentário, introdução, ou blocos de código como ```markdown ou ```. A resposta deve ser o texto Markdown puro e completo, pronto para ser salvo diretamente em um arquivo .md.
     """
@@ -48,7 +47,7 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
     try:
         logger.info("Enviando requisição para a API da OpenAI para mesclar as notas...")
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
