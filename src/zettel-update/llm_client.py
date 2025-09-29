@@ -52,7 +52,6 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            temperature=0.2,
         )
         merged_content = response.choices[0].message.content
         logger.info("Conteúdo mesclado recebido da API com sucesso.")
