@@ -49,7 +49,7 @@ def merge_notes_with_llm(daily_post_content: str, note_content: str) -> str:
     try:
         logger.info("Enviando requisição para a API da OpenAI para mesclar as notas...")
         response = client.chat.completions.create(
-            model="o1-pro",
+            model="gpt-5",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
